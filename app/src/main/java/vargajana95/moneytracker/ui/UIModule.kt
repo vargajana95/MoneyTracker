@@ -3,6 +3,8 @@ package vargajana95.moneytracker.ui
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import vargajana95.moneytracker.ui.transactions.SummaryPresenter
+import vargajana95.moneytracker.ui.transactions.TransactionsPresenter
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import javax.inject.Singleton
@@ -15,13 +17,12 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun mainPresenter() = MainPresenter()
-
-//    @Provides
-//    @Singleton
-//    fun artistsPresenter(executor: Executor, artistsInteractor: ArtistsInteractor) = ArtistsPresenter(executor, artistsInteractor)
+    fun summaryPresenter() =
+        SummaryPresenter()
 
     @Provides
     @Singleton
-    fun networkExecutor(): Executor = Executors.newFixedThreadPool(1)
+    fun transactionsPresenter() =
+        TransactionsPresenter()
+
 }
