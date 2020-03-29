@@ -11,9 +11,9 @@ import vargajana95.moneytracker.R
 import vargajana95.moneytracker.injector
 import javax.inject.Inject
 
-class TransactionListFragment : Fragment(), SummaryScreen {
+class TransactionListFragment : Fragment(), TransactionsScreen {
     @Inject
-    lateinit var transactionsPresenter: SummaryPresenter
+    lateinit var transactionsPresenter: TransactionsPresenter
 
 
     override fun show(term: String) {
