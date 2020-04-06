@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class CreateTransactionRequest(
     @SerializedName("account_id")
     var accountId: String? = null,
-    var data: String? = null,
+    var date: String? = null,
     var amount: Int? = null,
     @SerializedName("payee_name")
     var name: String? = null,

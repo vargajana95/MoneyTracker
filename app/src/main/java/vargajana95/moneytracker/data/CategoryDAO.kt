@@ -10,5 +10,5 @@ interface CategoryDAO {
     fun getAllCategories(): List<Category>
 
     @Query("""SELECT * FROM `Category` WHERE id=:id""")
-    fun getCategoryById(id: Long)
+    fun getCategoryById(id: Long): Category
     }

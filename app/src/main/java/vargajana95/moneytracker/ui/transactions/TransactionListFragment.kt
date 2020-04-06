@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_summary.*
+import kotlinx.android.synthetic.main.fragment_transaction_list.*
+import kotlinx.android.synthetic.main.fragment_transaction_list.view.*
 
 import vargajana95.moneytracker.R
 import vargajana95.moneytracker.injector
+import vargajana95.moneytracker.model.TransactionResult
 import javax.inject.Inject
 
 class TransactionListFragment : Fragment(), TransactionsScreen {
@@ -16,8 +20,8 @@ class TransactionListFragment : Fragment(), TransactionsScreen {
     lateinit var transactionsPresenter: TransactionsPresenter
 
 
-    override fun show(term: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showTransactions(transactions: List<TransactionResult>) {
+        textView3.text = transactions.toString()
     }
 
     override fun onAttach(context: Context) {
@@ -36,7 +40,10 @@ class TransactionListFragment : Fragment(), TransactionsScreen {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_transaction_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_transaction_list, container, false)
+
+        view.button.setOnClickListener { transactionsPresenter.refreshTransactions() }
+        return view
     }
 
     companion object {
