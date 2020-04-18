@@ -17,6 +17,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "version"
+    productFlavors {
+        network {
+        }
+        localdata {
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -39,7 +47,7 @@ android {
 }
 
 dependencies {
-    def retrofitVersion = "2.5.0"
+    def retrofitVersion = "2.8.1"
     def okhttpVersion = "3.12.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -68,13 +76,15 @@ dependencies {
         exclude module: 'okhttp'
     }
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "android.arch.persistence.room:runtime:2.1.0"
-    kapt "android.arch.persistence.room:compiler:2.1.0"
 
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.0-RC1'
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
 
-    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
 
 }

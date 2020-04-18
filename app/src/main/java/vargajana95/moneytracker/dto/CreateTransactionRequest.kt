@@ -1,4 +1,4 @@
-package vargajana95.moneytracker.model
+package vargajana95.moneytracker.dto
 
 import com.google.gson.annotations.SerializedName
 

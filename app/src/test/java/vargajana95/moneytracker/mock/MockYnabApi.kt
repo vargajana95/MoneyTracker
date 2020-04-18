@@ -1,7 +1,7 @@
 package vargajana95.moneytracker.mock
 
-import io.reactivex.rxjava3.core.Single
-import vargajana95.moneytracker.model.*
+import io.reactivex.Single
+import vargajana95.moneytracker.dto.*
 import vargajana95.moneytracker.network.YnabApi
 
 class MockYnabApi : YnabApi {

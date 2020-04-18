@@ -1,4 +1,4 @@
-package vargajana95.moneytracker.model
+package vargajana95.moneytracker.dto
 
 data class CategoryGroupsResponse(
     var id: String? = null,

@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_summary.*
 import kotlinx.android.synthetic.main.fragment_transaction_list.*
 import kotlinx.android.synthetic.main.fragment_transaction_list.view.*
 
 import vargajana95.moneytracker.R
 import vargajana95.moneytracker.injector
-import vargajana95.moneytracker.model.TransactionResult
+import vargajana95.moneytracker.model.Transaction
 import javax.inject.Inject
 
 class TransactionListFragment : Fragment(), TransactionsScreen {
@@ -20,7 +19,7 @@ class TransactionListFragment : Fragment(), TransactionsScreen {
     lateinit var transactionsPresenter: TransactionsPresenter
 
 
-    override fun showTransactions(transactions: List<TransactionResult>) {
+    override fun showTransactions(transactions: List<Transaction>) {
         textView3.text = transactions.toString()
     }
 

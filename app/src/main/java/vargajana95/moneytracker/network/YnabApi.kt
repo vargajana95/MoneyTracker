@@ -1,12 +1,11 @@
 package vargajana95.moneytracker.network
 
-import io.reactivex.rxjava3.core.Single
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.*
-import vargajana95.moneytracker.model.CategoriesResponse
-import vargajana95.moneytracker.model.CreateTransactionRequest
-import vargajana95.moneytracker.model.CreateTransactionResponse
-import vargajana95.moneytracker.model.TransactionsResult
+import vargajana95.moneytracker.dto.CategoriesResponse
+import vargajana95.moneytracker.dto.CreateTransactionRequest
+import vargajana95.moneytracker.dto.CreateTransactionResponse
+import vargajana95.moneytracker.dto.TransactionsResult
 
 interface YnabApi {
 

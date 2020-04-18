@@ -1,7 +1,8 @@
 package vargajana95.moneytracker.ui.transactions
 
 import vargajana95.moneytracker.interactor.TransactionInteractor
-import vargajana95.moneytracker.model.TransactionResult
+import vargajana95.moneytracker.dto.TransactionResult
+import vargajana95.moneytracker.model.Transaction
 import vargajana95.moneytracker.ui.Presenter
 import javax.inject.Inject
 
@@ -10,7 +11,7 @@ class TransactionsPresenter @Inject constructor(val transactionInteractor: Trans
     fun refreshTransactions() {
         transactionInteractor.getTransactions()
             .subscribe {
-                    transactions: List<TransactionResult> -> screen?.showTransactions(transactions)
+                    transactions: List<Transaction> -> screen?.showTransactions(transactions)
             }
 
 

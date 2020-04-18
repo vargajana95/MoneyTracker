@@ -1,4 +1,4 @@
-package vargajana95.moneytracker.ui
+package vargajana95.moneytracker
 
 import android.content.Context
 import dagger.Module
@@ -9,10 +9,10 @@ import vargajana95.moneytracker.ui.transactions.TransactionsPresenter
 import javax.inject.Singleton
 
 @Module
-class UIModule(private val context: Context) {
+class TestModule2(private val context: Context) {
 
     @Provides
-    fun context() = context
+    fun provideContext() = context
 
     @Provides
     @Singleton
@@ -23,5 +23,4 @@ class UIModule(private val context: Context) {
     @Singleton
     fun transactionsPresenter(transactionInteractor: TransactionInteractor) =
         TransactionsPresenter(transactionInteractor)
-
 }
