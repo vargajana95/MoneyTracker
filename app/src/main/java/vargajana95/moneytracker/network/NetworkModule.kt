@@ -24,7 +24,7 @@ class NetworkModule {
                 val original: Request = chain.request()
 
                 val request: Request = original.newBuilder()
-                    .header("Authorization", "Bearer d2ca7ab5df9d4f5966147341f039a49ad0fd929679fee849f3ed9ff28cae229f")
+                    .header("Authorization", "Bearer 9871fe1cc0d743a6bacf3f81b9eb806ab42842a4cbadc5a61894c49998c3eb30")
                     .method(original.method(), original.body())
                     .build()
 

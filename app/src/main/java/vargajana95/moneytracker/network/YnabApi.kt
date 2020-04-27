@@ -2,19 +2,16 @@ package vargajana95.moneytracker.network
 
 import io.reactivex.Single
 import retrofit2.http.*
-import vargajana95.moneytracker.dto.CategoriesResponse
-import vargajana95.moneytracker.dto.CreateTransactionRequest
-import vargajana95.moneytracker.dto.CreateTransactionResponse
-import vargajana95.moneytracker.dto.TransactionsResult
+import vargajana95.moneytracker.dto.*
 
 interface YnabApi {
 
-    @GET("/v1/budgets/db4cb2a2-1d97-44bb-8762-9821bd0fd8b9/transactions")
+    @GET("/v1/budgets/330acff1-644b-400a-87b4-7237741a43e2/transactions")
     fun getTransactions(): Single<TransactionsResult>
 
-    @POST("/v1/budgets/db4cb2a2-1d97-44bb-8762-9821bd0fd8b9/transactions")
-    fun createTransaction(@Body createTransactionRequest: CreateTransactionRequest): Single<CreateTransactionResponse>
+    @POST("/v1/budgets/330acff1-644b-400a-87b4-7237741a43e2/transactions")
+    fun createTransaction(@Body createTransactionRequest: CreateTransactionRequestData): Single<CreateTransactionResponse>
 
-    @GET("/v1/budgets/db4cb2a2-1d97-44bb-8762-9821bd0fd8b9/categories")
-    fun getCategories(authorization: String): Single<CategoriesResponse>
+    @GET("/v1/budgets/330acff1-644b-400a-87b4-7237741a43e2/categories")
+    fun getCategories(): Single<CategoriesResponse>
 }
