@@ -1,9 +1,13 @@
 package vargajana95.moneytracker.interactor
 
+import android.annotation.SuppressLint
 import android.util.Log
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.BehaviorSubject
+import io.reactivex.subjects.PublishSubject
 import vargajana95.moneytracker.dto.CreateTransactionData
 import vargajana95.moneytracker.dto.CreateTransactionRequest
 import vargajana95.moneytracker.dto.CreateTransactionRequestData
@@ -13,13 +17,19 @@ import vargajana95.moneytracker.model.Transaction
 import vargajana95.moneytracker.persistence.TransactionData
 import vargajana95.moneytracker.network.YnabApi
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class TransactionInteractor @Inject constructor(
     private val ynabApi: YnabApi
 ) {
 
-    fun getTransactions(): Single<List<Transaction>> {
-        return ynabApi.getTransactions().subscribeOn(Schedulers.io())
+    val fetchedTransactions: BehaviorSubject<List<Transaction>> = BehaviorSubject.create<List<Transaction>>()
+
+
+    @SuppressLint("CheckResult")
+    fun fetchTransactions() {
+        ynabApi.getTransactions().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map {
                 it.data?.transactions?.map { t ->
@@ -32,6 +42,8 @@ class TransactionInteractor @Inject constructor(
                         Category(t.categoryId!!, t.categoryName!!)
                     )
                 }
+            }.subscribe {
+                t-> fetchedTransactions.onNext(t!!)
             }
     }
 

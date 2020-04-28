@@ -16,8 +16,8 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun summaryPresenter() =
-        SummaryPresenter()
+    fun summaryPresenter(transactionInteractor: TransactionInteractor) =
+        SummaryPresenter(transactionInteractor)
 
     @Provides
     @Singleton

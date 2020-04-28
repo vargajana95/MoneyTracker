@@ -9,6 +9,7 @@ import vargajana95.moneytracker.persistence.dao.CategoryDAO
 import vargajana95.moneytracker.persistence.dao.TransactionDAO
 import javax.inject.Inject
 
+@Singleton
 class TransactionInteractor @Inject constructor(
     private val transactionDao: TransactionDAO,
     private val categoryDao: CategoryDAO

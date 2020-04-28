@@ -2,10 +2,12 @@ package vargajana95.moneytracker.ui.summary
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_summary.*
 
 import vargajana95.moneytracker.R
 import vargajana95.moneytracker.injector
@@ -16,11 +18,6 @@ import javax.inject.Inject
 class SummaryFragment : Fragment(), SummaryScreen {
     @Inject
     lateinit var summaryPresenter: SummaryPresenter
-
-
-    override fun show(param: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,17 +38,9 @@ class SummaryFragment : Fragment(), SummaryScreen {
         return inflater.inflate(R.layout.fragment_summary, container, false)
     }
 
-    companion object {
-        private const val KEY_TRANSACTION_LIST = "KEY_SUMMARY"
-
-        @JvmStatic
-        fun newInstance(param1: String): SummaryFragment {
-            val fragment = SummaryFragment()
-            val bundle = Bundle()
-
-            bundle.putString(KEY_TRANSACTION_LIST, param1)
-            fragment.arguments = bundle
-            return fragment
-        }
+    override fun showBudget(expense: Int, income: Int, budget: Int) {
+        tvExpenseValue.text = resources.getString(R.string.amount, expense)
+        tvIncomeValue.text = resources.getString(R.string.amount, income)
+        tvBudgetValue.text = resources.getString(R.string.amount, budget)
     }
 }
