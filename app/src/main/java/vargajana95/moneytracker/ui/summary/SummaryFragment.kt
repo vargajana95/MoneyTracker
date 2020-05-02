@@ -2,7 +2,6 @@ package vargajana95.moneytracker.ui.summary
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +10,6 @@ import kotlinx.android.synthetic.main.fragment_summary.*
 
 import vargajana95.moneytracker.R
 import vargajana95.moneytracker.injector
-import vargajana95.moneytracker.ui.transactions.SummaryPresenter
-import vargajana95.moneytracker.ui.transactions.SummaryScreen
 import javax.inject.Inject
 
 class SummaryFragment : Fragment(), SummaryScreen {

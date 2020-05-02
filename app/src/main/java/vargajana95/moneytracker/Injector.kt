@@ -10,5 +10,5 @@ val Activity.injector: MoneyTrackerApplicationComponent
 
 val Fragment.injector: MoneyTrackerApplicationComponent
     get() {
-        return (this.context!!.applicationContext as MoneyTrackerApplication).injector
+        return (this.requireContext().applicationContext as MoneyTrackerApplication).injector
     }

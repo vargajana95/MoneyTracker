@@ -1,6 +1,5 @@
-package vargajana95.moneytracker.ui.transactions
+package vargajana95.moneytracker.ui.summary
 
-import android.util.Log
 import io.reactivex.disposables.Disposable
 import vargajana95.moneytracker.interactor.TransactionInteractor
 import vargajana95.moneytracker.model.Transaction
@@ -24,7 +23,7 @@ class SummaryPresenter(
     private fun showBudget(transactions: List<Transaction>) {
         val income = transactions.filter { t->t.amount>0 }.sumBy {  t->t.amount}
         val expense = transactions.filter { t->t.amount<0 }.sumBy {  t->t.amount}.absoluteValue
-        val budget = transactions.sumBy {  t->t.amount}
+        val budget = income-expense
 
         screen?.showBudget(expense, income, budget)
     }

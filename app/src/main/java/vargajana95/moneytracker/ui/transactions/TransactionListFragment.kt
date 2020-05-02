@@ -71,7 +71,7 @@ class TransactionListFragment : Fragment(), TransactionsScreen, NewTransactionDi
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_transaction_list, container, false)
-        view.fab.setOnClickListener { v ->
+        view.fab.setOnClickListener { _ ->
             transactionsPresenter.createNewTransactionDialog()
         }
         return view

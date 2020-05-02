@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import vargajana95.moneytracker.interactor.TransactionInteractor
-import vargajana95.moneytracker.ui.transactions.SummaryPresenter
+import vargajana95.moneytracker.ui.summary.SummaryPresenter
 import vargajana95.moneytracker.ui.transactions.TransactionsPresenter
 import javax.inject.Singleton
 

@@ -2,19 +2,15 @@ package vargajana95.moneytracker.interactor
 
 import android.annotation.SuppressLint
 import android.util.Log
-import io.reactivex.Observable
+import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.PublishSubject
-import vargajana95.moneytracker.dto.CreateTransactionData
 import vargajana95.moneytracker.dto.CreateTransactionRequest
 import vargajana95.moneytracker.dto.CreateTransactionRequestData
-import vargajana95.moneytracker.dto.CreateTransactionResponse
 import vargajana95.moneytracker.model.Category
 import vargajana95.moneytracker.model.Transaction
-import vargajana95.moneytracker.persistence.TransactionData
 import vargajana95.moneytracker.network.YnabApi
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -1,9 +1,13 @@
 package vargajana95.moneytracker.persistence
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import vargajana95.moneytracker.model.Category
 
-@Entity
+@Entity(foreignKeys = [ForeignKey(entity = Category::class,
+    parentColumns = ["id"],
+    childColumns = ["categoryId"])])
 data class TransactionData(
     @PrimaryKey
     var id: String,

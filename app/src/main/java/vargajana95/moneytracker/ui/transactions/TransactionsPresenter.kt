@@ -1,6 +1,5 @@
 package vargajana95.moneytracker.ui.transactions
 
-import android.util.Log
 import io.reactivex.disposables.CompositeDisposable
 import vargajana95.moneytracker.interactor.TransactionInteractor
 import vargajana95.moneytracker.model.Category
@@ -15,8 +14,6 @@ class TransactionsPresenter @Inject constructor(val transactionInteractor: Trans
 
     fun refreshTransactions() {
         transactionInteractor.fetchTransactions()
-
-
     }
 
     fun createNewTransaction(transaction: Transaction) {
@@ -33,12 +30,12 @@ class TransactionsPresenter @Inject constructor(val transactionInteractor: Trans
         })
     }
 
-    override fun attachScreen(s: TransactionsScreen) {
-        super.attachScreen(s)
+    override fun attachScreen(screen: TransactionsScreen) {
+        super.attachScreen(screen)
 
         compositeDisposable.add(transactionInteractor.fetchedTransactions.subscribe { transactions: List<Transaction> ->
 
-            screen?.showTransactions(transactions)
+            this.screen?.showTransactions(transactions)
         })
     }
 
